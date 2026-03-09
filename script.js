@@ -9,6 +9,8 @@
   const exprEl = document.getElementById('expr');
   const resultEl = document.getElementById('result');
   const themeToggle = document.getElementById('themeToggle');
+  const colorToggle = document.getElementById('colorToggle');
+  const colorPicker = document.getElementById('colorPicker');
   const buttons = document.querySelectorAll('.calculator .btn');
 
   let state = {
@@ -242,13 +244,47 @@
     localStorage.setItem('calc-theme', isDark ? 'light' : 'dark');
   });
 
-  const saved = localStorage.getItem('calc-theme');
-  if (saved === 'dark') {
+  function setColor(color) {
+    const html = document.documentElement;
+    if (color === 'blue') {
+      html.removeAttribute('data-color');
+    } else {
+      html.setAttribute('data-color', color);
+    }
+    localStorage.setItem('calc-color', color);
+    document.querySelectorAll('.color-swatch').forEach((sw) => {
+      sw.classList.toggle('active', sw.dataset.color === color);
+    });
+  }
+
+  colorToggle.addEventListener('click', () => {
+    const isHidden = colorPicker.hidden;
+    colorPicker.hidden = !isHidden;
+  });
+
+  document.querySelectorAll('.color-swatch').forEach((sw) => {
+    sw.addEventListener('click', () => {
+      setColor(sw.dataset.color);
+      colorPicker.hidden = true;
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!colorPicker.hidden && !colorPicker.contains(e.target) && !colorToggle.contains(e.target)) {
+      colorPicker.hidden = true;
+    }
+  });
+
+  const savedTheme = localStorage.getItem('calc-theme');
+  if (savedTheme === 'dark') {
     document.documentElement.setAttribute('data-theme', 'dark');
     themeToggle.textContent = '☾';
   } else {
     document.documentElement.setAttribute('data-theme', 'light');
   }
+
+  const savedColor = localStorage.getItem('calc-color') || 'blue';
+  setColor(savedColor);
 
   document.addEventListener('keydown', (e) => {
     const key = e.key;

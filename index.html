@@ -8,7 +8,18 @@
 </head>
 <body>
   <main class="calculator">
-    <button type="button" class="theme-toggle" id="themeToggle" aria-label="Переключить тему">☀</button>
+    <div class="header-buttons">
+      <button type="button" class="theme-toggle" id="themeToggle" aria-label="Переключить тему">☀</button>
+      <button type="button" class="color-toggle" id="colorToggle" aria-label="Выбрать цвет">🎨</button>
+    </div>
+    <div class="color-picker" id="colorPicker" hidden>
+      <button type="button" class="color-swatch" data-color="blue" title="Синий"></button>
+      <button type="button" class="color-swatch" data-color="green" title="Зелёный"></button>
+      <button type="button" class="color-swatch" data-color="purple" title="Фиолетовый"></button>
+      <button type="button" class="color-swatch" data-color="orange" title="Оранжевый"></button>
+      <button type="button" class="color-swatch" data-color="red" title="Красный"></button>
+      <button type="button" class="color-swatch" data-color="teal" title="Бирюзовый"></button>
+    </div>
     <div class="display">
       <div class="display-expression" id="expr" aria-hidden="true"></div>
       <div class="display-result" id="result" role="status" aria-live="polite">=0</div>
