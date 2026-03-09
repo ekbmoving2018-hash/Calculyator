@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculyator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="calculator">
+    <button type="button" class="theme-toggle" id="themeToggle" aria-label="Переключить тему">☀</button>
+    <div class="display">
+      <div class="display-expression" id="expr" aria-hidden="true"></div>
+      <div class="display-result" id="result" role="status" aria-live="polite">=0</div>
+    </div>
+    <div class="buttons">
+      <!-- Row 1: Scientific -->
+      <button type="button" class="btn btn-sci" data-action="e" aria-label="Число e">e</button>
+      <button type="button" class="btn btn-sci" data-action="mu" aria-label="Микро (10⁻⁶)">μ</button>
+      <button type="button" class="btn btn-sci" data-action="sin" aria-label="Синус">sin</button>
+      <button type="button" class="btn btn-sci" data-action="deg" aria-label="Градусы/радианы">deg</button>
+      <!-- Row 2 -->
+      <button type="button" class="btn btn-clear" data-action="ac">Ac</button>
+      <button type="button" class="btn btn-func" data-action="backspace" aria-label="Удалить">⌫</button>
+      <button type="button" class="btn btn-op" data-action="divide">/</button>
+      <button type="button" class="btn btn-op" data-action="multiply">*</button>
+      <!-- Row 3 -->
+      <button type="button" class="btn btn-num" data-action="7">7</button>
+      <button type="button" class="btn btn-num" data-action="8">8</button>
+      <button type="button" class="btn btn-num" data-action="9">9</button>
+      <button type="button" class="btn btn-op" data-action="subtract">−</button>
+      <!-- Row 4 -->
+      <button type="button" class="btn btn-num" data-action="4">4</button>
+      <button type="button" class="btn btn-num" data-action="5">5</button>
+      <button type="button" class="btn btn-num" data-action="6">6</button>
+      <button type="button" class="btn btn-op btn-add" data-action="add">+</button>
+      <!-- Row 5 -->
+      <button type="button" class="btn btn-num" data-action="1">1</button>
+      <button type="button" class="btn btn-num" data-action="2">2</button>
+      <button type="button" class="btn btn-num" data-action="3">3</button>
+      <!-- Row 6 -->
+      <button type="button" class="btn btn-num btn-zero" data-action="0">0</button>
+      <button type="button" class="btn btn-num" data-action="decimal">.</button>
+      <button type="button" class="btn btn-op btn-equals" data-action="equals">=</button>
+    </div>
+  </main>
+  <script src="script.js" defer></script>
+</body>
+</html>
